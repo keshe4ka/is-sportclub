@@ -1,0 +1,12 @@
+window_sizes 1920 1001 450 1464 819 128
+
+diagrams
+  active  usecasediagram_ref 128002 // abd
+    1464 819 79 A0 0 0
+end
+show_stereotypes
+selected usecasediagram_ref 128002 // abd
+open
+  usecaseview_ref 128002 // chto1
+end
+end
