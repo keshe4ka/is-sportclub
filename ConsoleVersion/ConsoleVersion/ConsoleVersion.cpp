@@ -43,6 +43,7 @@ void start_window() {
 	}
 }
 
+//test for github
 int main()
 {
 	start_window();
