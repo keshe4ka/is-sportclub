@@ -43,7 +43,7 @@ void start_window() {
 	}
 }
 
-//test for github2
+//test for github3
 int main()
 {
 	start_window();
