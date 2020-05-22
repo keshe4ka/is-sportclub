@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <string>
-#include "administrator.h"
+#include "User.h"
 using namespace std;
 
 
@@ -13,6 +13,8 @@ void sign_in() {
 	cout << "password: " << endl;
 	string password;
 	cin >> password;
+
+	if 
 }
 
 //функция регистрации
