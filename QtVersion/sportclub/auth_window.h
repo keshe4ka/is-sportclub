@@ -31,6 +31,7 @@ private:
     Ui::auth_window *ui;
     QString m_username;
     QString m_userpass;
+    friend class mainwindow;
 };
 
 #endif // AUTH_WINDOW_H
