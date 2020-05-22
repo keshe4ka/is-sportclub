@@ -5,6 +5,8 @@
 #include <QString>
 #include <QtSql/QSql>
 #include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlTableModel>
 #include "auth_window.h"
 
 QT_BEGIN_NAMESPACE
