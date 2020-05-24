@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     QSqlDatabase mw_db;
 
-    mw_db.setDatabaseName("C:\\...\\data.db");                                           //указываем путь до бд
+    mw_db.setDatabaseName("Driver={Microsoft Access Driver (*.mdb, *.accdb)};DSN='';DBQ=C:\\Users\\proka\\Desktop\\DB.mdb");                                          //указываем путь до бд
     mw_db.open();
 
     user_counter = 0;
@@ -43,14 +43,18 @@ QSqlQuery query;
 void MainWindow::authorizeUser()
 {
     QString id    = 0;
+    QString second_name   = "";
+    QString name    = "";
+    QString patonymic   = "";
     QString login    = "";
-    QString password    = "";
+    QString password   = "";
+    QString Role_id    = 0;
     QSqlDatabase mw_db;
 
     QSqlQuery query;
 
     QSqlRecord rec;
-    query.exec("SELECT id, Login, Password FROM user");                                                              //делаем запрос
+    query.exec("SELECT id, second_name, name, patonymic, login, password, Role_id FROM User");                                                              //делаем запрос
 
     m_username          = ui_Auth.getLogin();
     m_userpass          = ui_Auth.getPass();
@@ -61,9 +65,12 @@ void MainWindow::authorizeUser()
     while (query.next() && m_loginSuccesfull == false ){
     rec = query.record();
     id    = query.value(0).toInt();                                                                            //достаем из
-    login    = query.value(1).toString();                                                                            //бд
-    password    = query.value(2).toString();                                                                            //разные штуки
-
+    second_name    = query.value(1).toString();                                                                            //бд
+    name    = query.value(2).toString();                                                                            //разные штуки
+    patonymic    = query.value(3).toString();                                                                            //достаем из
+    login    = query.value(4).toString();                                                                            //бд
+    password    = query.value(5).toString();
+    Role_id    = query.value(6).toInt();
     if(m_username != login || m_userpass != password)
     {
 
@@ -92,19 +99,9 @@ void MainWindow::authorizeUser()
                           " FROM userlist "
                           " WHERE name = '%1'";
     //int db_number       = 0;
-
-
-
-
-
-
-
     db_input    = str_t.arg(m_username);
-
     QSqlQuery query;
-
     QSqlRecord rec;
-
     if(!query.exec(db_input))
     {
         qDebug() << "Unable to execute query - exiting" << query.lastError() << " : " << query.lastQuery();
@@ -119,7 +116,6 @@ void MainWindow::authorizeUser()
         qDebug() << "Password missmatch" << username << " " << userpass;
         m_loginSuccesfull = false;
     }
-
     }*/
 
 void MainWindow::display()                                                              //реализация пользотвальского метода отображения главного окна
@@ -157,8 +153,8 @@ MainWindow::~MainWindow()                                                       
 bool MainWindow::connectDB()
 {
     QSqlDatabase mw_db;
-    mw_db = QSqlDatabase::addDatabase("QSQLITE");
-    mw_db.setDatabaseName("C:\\...\\data.db");                               //здесь снова указываем бд, чтобы пройти проверку подключения
+    mw_db = QSqlDatabase::addDatabase("QODBC");
+    mw_db.setDatabaseName("Driver={Microsoft Access Driver (*.mdb, *.accdb)};DSN='';DBQ=C:\\Users\\proka\\Desktop\\DB.mdb");                               //здесь снова указываем бд, чтобы пройти проверку подключения
     mw_db.open();
     if(!mw_db.open())
     {
@@ -170,4 +166,3 @@ bool MainWindow::connectDB()
     mw_db.setPassword("password");*/
     return true;
 }
-
