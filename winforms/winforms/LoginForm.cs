@@ -43,7 +43,11 @@ namespace winforms
 
             //Если записи есть, то...
             if (table.Rows.Count > 0)
-                MessageBox.Show("Вы вошли!");
+            {
+                this.Hide();
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+            }
             else
                 MessageBox.Show("Не вошли :(");
             
