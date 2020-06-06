@@ -69,5 +69,11 @@ namespace winforms
             }
         }
 
+        //закрытие проги когда тык на крестик
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

@@ -76,5 +76,11 @@ namespace winforms
         {
 
         }
+
+        //закрытие проги когда тык на крестик      
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

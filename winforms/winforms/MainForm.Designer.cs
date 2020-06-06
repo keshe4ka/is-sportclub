@@ -53,10 +53,11 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(4, 9);
+            this.tabControl1.Location = new System.Drawing.Point(5, 11);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(973, 488);
+            this.tabControl1.Size = new System.Drawing.Size(1297, 601);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -65,19 +66,21 @@
             this.tabPage1.Controls.Add(this.deleteButton);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.addButton);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(965, 462);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1289, 572);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Пользователи";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(6, 149);
+            this.saveButton.Location = new System.Drawing.Point(8, 183);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(173, 60);
+            this.saveButton.Size = new System.Drawing.Size(231, 74);
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Сохранить";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -85,9 +88,10 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(6, 83);
+            this.deleteButton.Location = new System.Drawing.Point(8, 102);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(173, 60);
+            this.deleteButton.Size = new System.Drawing.Size(231, 74);
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "Удалить пользователя";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -104,9 +108,10 @@
             this.login,
             this.password,
             this.Role_id});
-            this.dataGridView1.Location = new System.Drawing.Point(185, 17);
+            this.dataGridView1.Location = new System.Drawing.Point(247, 21);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(774, 439);
+            this.dataGridView1.Size = new System.Drawing.Size(1032, 540);
             this.dataGridView1.TabIndex = 2;
             // 
             // Id_User
@@ -146,9 +151,10 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(6, 17);
+            this.addButton.Location = new System.Drawing.Point(8, 21);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(173, 60);
+            this.addButton.Size = new System.Drawing.Size(231, 74);
             this.addButton.TabIndex = 0;
             this.addButton.Text = "Добавить пользователя";
             this.addButton.UseVisualStyleBackColor = true;
@@ -156,31 +162,35 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(965, 462);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1289, 572);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Виды спорта";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(965, 462);
+            this.tabPage3.Size = new System.Drawing.Size(1289, 572);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Бэкап";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 500);
+            this.ClientSize = new System.Drawing.Size(1307, 615);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
