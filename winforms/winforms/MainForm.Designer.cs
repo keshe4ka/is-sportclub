@@ -33,6 +33,9 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.addButton = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.Id_User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.second_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,9 +43,6 @@
             this.login = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addButton = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -108,46 +108,11 @@
             this.login,
             this.password,
             this.Role_id});
-            this.dataGridView1.Location = new System.Drawing.Point(247, 21);
+            this.dataGridView1.Location = new System.Drawing.Point(268, 21);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1032, 540);
+            this.dataGridView1.Size = new System.Drawing.Size(743, 540);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // Id_User
-            // 
-            this.Id_User.HeaderText = "id";
-            this.Id_User.Name = "Id_User";
-            // 
-            // second_name
-            // 
-            this.second_name.HeaderText = "second_name";
-            this.second_name.Name = "second_name";
-            // 
-            // name
-            // 
-            this.name.HeaderText = "name";
-            this.name.Name = "name";
-            // 
-            // patronymic
-            // 
-            this.patronymic.HeaderText = "patronymic";
-            this.patronymic.Name = "patronymic";
-            // 
-            // login
-            // 
-            this.login.HeaderText = "login";
-            this.login.Name = "login";
-            // 
-            // password
-            // 
-            this.password.HeaderText = "password";
-            this.password.Name = "password";
-            // 
-            // Role_id
-            // 
-            this.Role_id.HeaderText = "Role_id";
-            this.Role_id.Name = "Role_id";
             // 
             // addButton
             // 
@@ -181,11 +146,46 @@
             this.tabPage3.Text = "Бэкап";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // Id_User
+            // 
+            this.Id_User.HeaderText = "id";
+            this.Id_User.Name = "Id_User";
+            // 
+            // second_name
+            // 
+            this.second_name.HeaderText = "Фамилия";
+            this.second_name.Name = "second_name";
+            // 
+            // name
+            // 
+            this.name.HeaderText = "name";
+            this.name.Name = "name";
+            // 
+            // patronymic
+            // 
+            this.patronymic.HeaderText = "patronymic";
+            this.patronymic.Name = "patronymic";
+            // 
+            // login
+            // 
+            this.login.HeaderText = "login";
+            this.login.Name = "login";
+            // 
+            // password
+            // 
+            this.password.HeaderText = "password";
+            this.password.Name = "password";
+            // 
+            // Role_id
+            // 
+            this.Role_id.HeaderText = "Role_id";
+            this.Role_id.Name = "Role_id";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1307, 615);
+            this.ClientSize = new System.Drawing.Size(1036, 615);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
@@ -206,6 +206,8 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_User;
         private System.Windows.Forms.DataGridViewTextBoxColumn second_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
@@ -213,7 +215,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn login;
         private System.Windows.Forms.DataGridViewTextBoxColumn password;
         private System.Windows.Forms.DataGridViewTextBoxColumn Role_id;
-        private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button deleteButton;
     }
 }

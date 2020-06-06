@@ -38,7 +38,9 @@ namespace winforms
                     switch ((string)dataReader["Role"])
                     {
                         case "Admin": role = Role.Admin; break;                      
-                        case "Trainer": role = Role.Trainer; break;                        
+                        case "Trainer": role = Role.Trainer; break;
+                        case "Referee": role = Role.Referee; break;
+                        case "Sportsman": role = Role.Sportsman; break;
                     }
                 }
             }
@@ -65,6 +67,12 @@ namespace winforms
                 else if (role == Role.Trainer)
                 {
                     MessageBox.Show("Здарова тренер");
+                }
+                else if (role == Role.Referee)
+                {
+                    this.Hide();
+                    Referee RefereeForm = new Referee();
+                    RefereeForm.Show();                    
                 }
             }
         }
