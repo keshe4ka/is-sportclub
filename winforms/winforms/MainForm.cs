@@ -22,13 +22,16 @@ namespace winforms
 
         private void LoadData()
         {
-            string connectString = "server = localhost; port = 3306; username = root; password = root; database = mydb";
-            MySqlConnection myConenection = new MySqlConnection(connectString);
+            //string connectString = "server = localhost; port = 3306; username = root; password = root; database = sportclub";
+            //MySqlConnection myConenection = new MySqlConnection(connectString);
+            //myConenection.Open();
 
-            myConenection.Open();
+            //Артем, убери весь позор сверху, у нас есть класс DB.cs, где все что ты делашеь сверху - две строчки ниже
+            DB db = new DB();
+            db.openConnection();
 
             String query = "SELECT * FROM `user`";
-            MySqlCommand command = new MySqlCommand(query, myConenection);
+            MySqlCommand command = new MySqlCommand(query, db.getConnection()); //myConnection был заменен на db.getConnection()
 
             MySqlDataReader reader = command.ExecuteReader();
 
@@ -49,7 +52,7 @@ namespace winforms
 
             reader.Close();
 
-            myConenection.Close();
+            db.closeConnection(); //myConenection.Close() был заменен на db.closeConnection();
 
             foreach (string[] s in data)
                 dataGridView1.Rows.Add(s);

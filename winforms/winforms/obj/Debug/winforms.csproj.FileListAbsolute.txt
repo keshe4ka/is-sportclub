@@ -39,3 +39,4 @@ C:\Users\Артём\Desktop\is_sportclub-master\winforms\winforms\obj\Debug\winf
 C:\Users\Артём\Desktop\is_sportclub-master\winforms\winforms\obj\Debug\winforms.exe
 C:\Users\Артём\Desktop\is_sportclub-master\winforms\winforms\obj\Debug\winforms.pdb
 C:\Users\Артём\Desktop\is_sportclub-master\winforms\winforms\obj\Debug\winforms.MainForm.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.MainForm.resources
