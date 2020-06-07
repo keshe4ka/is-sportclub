@@ -18,36 +18,70 @@ namespace winforms
             InitializeComponent();
         }
 
+        enum Role { Admin, Sportsman, Trainer, Referee, Failed }
+
+        //проверка на наличие пользователя
+        static Role GetRole(string login, string password)
+        {
+            Role role = Role.Failed;
+            DB db = new DB();           
+            MySqlCommand command = new MySqlCommand("Select `Role` From `user` WHERE `login`=@login AND `password`=@password", db.getConnection());
+            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = login;
+            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
+            db.openConnection();
+            
+            MySqlDataReader dataReader = command.ExecuteReader();
+            using (dataReader)
+            {
+                if (dataReader.Read())
+                {
+                    switch ((string)dataReader["Role"])
+                    {
+                        case "Admin": role = Role.Admin; break;                      
+                        case "Trainer": role = Role.Trainer; break;
+                        case "Referee": role = Role.Referee; break;
+                        case "Sportsman": role = Role.Sportsman; break;
+                    }
+                }
+            }
+            return role;
+            
+        }
+
+        //тыкнули на кнопку и вошли
         private void login_button_Click(object sender, EventArgs e)
         {
-            //Создаем строки, которые заполняем вводом из текстбоксов
-            String loginUser = login_textbox.Text;
-            String passUser = password_textbox.Text;
-
-            //Делаем подключение к базе данных
-            DB db = new DB();
-
-            DataTable table = new DataTable();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            //@loginUser и @loginPassword - заглушки, которые нужны для защиты от хацкеров, далее мы передаем этим заглушкам созданные строки
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `user` WHERE `login` = @loginUser AND `password` = @passUser", db.getConnection()); 
-            command.Parameters.Add("@loginUser", MySqlDbType.VarChar).Value = loginUser;
-            command.Parameters.Add("@passUser", MySqlDbType.VarChar).Value = passUser;
-
-            //Выбрали нужную комманду и выполнили ее
-            adapter.SelectCommand = command;
-            //Все полученные данные поместили в созданную табличку
-            adapter.Fill(table);
-
-            //Если записи есть, то...
-            if (table.Rows.Count > 0)
-                MessageBox.Show("Вы вошли!");
+            Role role = GetRole(login_textbox.Text, password_textbox.Text);
+            if (role == Role.Failed)
+            {
+                MessageBox.Show("Неверный логин или пароль");
+            }
             else
-                MessageBox.Show("Не вошли :(");
-            
-
+            {
+                if (role == Role.Admin)
+                {
+                    this.Hide();
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
+                }
+                else if (role == Role.Trainer)
+                {
+                    MessageBox.Show("Здарова тренер");
+                }
+                else if (role == Role.Referee)
+                {
+                    this.Hide();
+                    Referee RefereeForm = new Referee();
+                    RefereeForm.Show();                    
+                }
+            }
         }
+
+        //закрытие проги когда тык на крестик
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }
