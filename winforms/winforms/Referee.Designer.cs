@@ -35,7 +35,6 @@
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.competitions_dataGridView = new System.Windows.Forms.DataGridView();
-            this.kind_of_sport_tabpage = new System.Windows.Forms.TabPage();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name_competition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kind_of_sport_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +43,7 @@
             this.Sportsman_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Referee_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kind_of_sport_tabpage = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.competition_tabpage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.competitions_dataGridView)).BeginInit();
@@ -76,6 +76,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchButton.Location = new System.Drawing.Point(735, 342);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(122, 49);
@@ -85,6 +86,7 @@
             // 
             // deleteButton
             // 
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.Location = new System.Drawing.Point(262, 342);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(122, 49);
@@ -94,6 +96,7 @@
             // 
             // changeButton
             // 
+            this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeButton.Location = new System.Drawing.Point(134, 342);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(122, 49);
@@ -103,6 +106,7 @@
             // 
             // addButton
             // 
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Location = new System.Drawing.Point(6, 342);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(122, 49);
@@ -112,6 +116,7 @@
             // 
             // competitions_dataGridView
             // 
+            this.competitions_dataGridView.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.competitions_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.competitions_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -127,16 +132,6 @@
             this.competitions_dataGridView.RowTemplate.Height = 24;
             this.competitions_dataGridView.Size = new System.Drawing.Size(845, 332);
             this.competitions_dataGridView.TabIndex = 0;
-            // 
-            // kind_of_sport_tabpage
-            // 
-            this.kind_of_sport_tabpage.Location = new System.Drawing.Point(4, 25);
-            this.kind_of_sport_tabpage.Name = "kind_of_sport_tabpage";
-            this.kind_of_sport_tabpage.Padding = new System.Windows.Forms.Padding(3);
-            this.kind_of_sport_tabpage.Size = new System.Drawing.Size(863, 397);
-            this.kind_of_sport_tabpage.TabIndex = 1;
-            this.kind_of_sport_tabpage.Text = "Виды спорта";
-            this.kind_of_sport_tabpage.UseVisualStyleBackColor = true;
             // 
             // id
             // 
@@ -178,10 +173,21 @@
             this.Referee_id.HeaderText = "Referee_id";
             this.Referee_id.Name = "Referee_id";
             // 
+            // kind_of_sport_tabpage
+            // 
+            this.kind_of_sport_tabpage.Location = new System.Drawing.Point(4, 25);
+            this.kind_of_sport_tabpage.Name = "kind_of_sport_tabpage";
+            this.kind_of_sport_tabpage.Padding = new System.Windows.Forms.Padding(3);
+            this.kind_of_sport_tabpage.Size = new System.Drawing.Size(863, 397);
+            this.kind_of_sport_tabpage.TabIndex = 1;
+            this.kind_of_sport_tabpage.Text = "Виды спорта";
+            this.kind_of_sport_tabpage.UseVisualStyleBackColor = true;
+            // 
             // Referee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(894, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Referee";
