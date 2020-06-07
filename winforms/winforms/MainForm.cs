@@ -22,11 +22,6 @@ namespace winforms
 
         private void LoadData()
         {
-            //string connectString = "server = localhost; port = 3306; username = root; password = root; database = sportclub";
-            //MySqlConnection myConenection = new MySqlConnection(connectString);
-            //myConenection.Open();
-
-            //Артем, убери весь позор сверху, у нас есть класс DB.cs, где все что ты делашеь сверху - две строчки ниже
             DB db = new DB();
             db.openConnection();
 
@@ -61,7 +56,14 @@ namespace winforms
         }
         private void addButton_Click(object sender, EventArgs e)
         {
-
+            string id = IdBox.Text;
+            string secondname = SecondNameBox.Text;
+            string name = NameBox.Text;
+            string patronymic = PatronymicBox.Text;
+            string login = LoginBox.Text;
+            string password = PasswordBox.Text;
+            string Role = RoleIdBox.Text;
+            dataGridView1.Rows.Add(id, secondname, name, patronymic, login, password, Role);
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -74,7 +76,6 @@ namespace winforms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-
         }
 
         //закрытие проги когда тык на крестик      
@@ -82,5 +83,6 @@ namespace winforms
         {
             Application.Exit();
         }
+
     }
 }
