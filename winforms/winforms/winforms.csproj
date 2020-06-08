@@ -50,6 +50,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCompetition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCompetition.Designer.cs">
+      <DependentUpon>AddCompetition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSport.Designer.cs">
+      <DependentUpon>AddSport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSportsman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSportsman.Designer.cs">
+      <DependentUpon>AddSportsman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -71,6 +95,30 @@
     <Compile Include="Referee.Designer.cs">
       <DependentUpon>Referee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sportsman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sportsman.Designer.cs">
+      <DependentUpon>Sportsman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trainer.Designer.cs">
+      <DependentUpon>Trainer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddCompetition.resx">
+      <DependentUpon>AddCompetition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSport.resx">
+      <DependentUpon>AddSport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSportsman.resx">
+      <DependentUpon>AddSportsman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +136,12 @@
     </Compile>
     <EmbeddedResource Include="Referee.resx">
       <DependentUpon>Referee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sportsman.resx">
+      <DependentUpon>Sportsman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trainer.resx">
+      <DependentUpon>Trainer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

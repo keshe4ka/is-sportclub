@@ -18,6 +18,7 @@ namespace winforms
             InitializeComponent();
         }
 
+
         enum Role { Admin, Sportsman, Trainer, Referee, Failed }
 
         //проверка на наличие пользователя
@@ -29,7 +30,6 @@ namespace winforms
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = login;
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
             db.openConnection();
-            
             MySqlDataReader dataReader = command.ExecuteReader();
             using (dataReader)
             {
@@ -51,6 +51,7 @@ namespace winforms
         //тыкнули на кнопку и вошли
         private void login_button_Click(object sender, EventArgs e)
         {
+            Program.appId = login_textbox.Text;
             Role role = GetRole(login_textbox.Text, password_textbox.Text);
             if (role == Role.Failed)
             {
@@ -66,13 +67,21 @@ namespace winforms
                 }
                 else if (role == Role.Trainer)
                 {
-                    MessageBox.Show("Здарова тренер");
+                    this.Hide();
+                    Trainer TrainerForm = new Trainer();
+                    TrainerForm.Show();
                 }
                 else if (role == Role.Referee)
                 {
                     this.Hide();
                     Referee RefereeForm = new Referee();
                     RefereeForm.Show();                    
+                }
+                else if (role == Role.Sportsman)
+                {
+                    this.Hide();
+                    Sportsman SportsmanForm = new Sportsman();
+                    SportsmanForm.Show();
                 }
             }
         }
@@ -82,6 +91,8 @@ namespace winforms
         {
             Application.Exit();
         }
+
+
 
     }
 }

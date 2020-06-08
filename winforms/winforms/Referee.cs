@@ -13,57 +13,111 @@ using System.Windows.Forms;
 namespace winforms
 {
     public partial class Referee : Form
-    {
+    {       
         public Referee()
         {
             InitializeComponent();
             LoadData();
+            LoadSportsData();
         }
-        private void LoadData()
+
+        //функция для обнолвения таблички с данными (я не придумал ничего лучше, чем снова вызывать функцию прогрузки)
+        public void RefreshGrid()
         {
-           
+            LoadData();            
+        }
+
+        //прогружаем данные соревнований
+        private void LoadData()
+        {            
             DB db = new DB();
             db.openConnection();
-
-            String query = "SELECT * FROM `competition`";
-            MySqlCommand command = new MySqlCommand(query, db.getConnection()); 
-
-            MySqlDataReader reader = command.ExecuteReader();
-
-            List<string[]> data = new List<string[]>();
-
-            while (reader.Read())
-            {
-                data.Add(new string[8]);
-
-                data[data.Count - 1][0] = reader[0].ToString();
-                data[data.Count - 1][1] = reader[1].ToString();
-                data[data.Count - 1][2] = reader[2].ToString();
-                data[data.Count - 1][3] = reader[3].ToString();
-                data[data.Count - 1][4] = reader[4].ToString();
-                data[data.Count - 1][5] = reader[5].ToString();
-                data[data.Count - 1][6] = reader[6].ToString();
-                data[data.Count - 1][7] = reader[7].ToString();
-            }
-
-            reader.Close();
-
-            db.closeConnection(); 
-
-            foreach (string[] s in data)
-                competitions_dataGridView.Rows.Add(s);
-
-
+            String query = "SELECT * FROM competition";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
+            DataSet data = new DataSet();
+            adapter.Fill(data);
+            BindingSource bs = new BindingSource(data, data.Tables[0].TableName);
+            competitions_dataGridView.DataSource = bs;
+            db.closeConnection();
         }
 
-        private void Referee_Load(object sender, EventArgs e)
+        //прогружаем данные видов спорта
+        private void LoadSportsData()
         {
-
+            DB db = new DB();
+            db.openConnection();
+            String query = "SELECT * FROM kind_of_sport";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
+            DataSet data = new DataSet();
+            adapter.Fill(data);
+            BindingSource bs = new BindingSource(data, data.Tables[0].TableName);
+            sports_dataGridView.DataSource = bs;
+            db.closeConnection();
         }
 
+
+        //закрываем формочку
         private void Referee_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        //тык на кнопку и вызывем формочку
+        private void addButton_Click(object sender, EventArgs e)
+        {           
+            AddCompetition addCompetition = new AddCompetition(this);
+            addCompetition.Show();           
+        }
+
+        //удаляем
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in competitions_dataGridView.SelectedRows)
+            {
+                //кидаем проверочку
+                DialogResult dialogResult = MessageBox.Show("Вы уверены?", "Удалить данные", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DB db = new DB();
+                    db.openConnection();
+                    int rowIdToDelete = Convert.ToInt32(competitions_dataGridView.SelectedRows[0].Cells[0].Value);
+                    MySqlCommand command = new MySqlCommand("DELETE FROM competition WHERE id = '" + rowIdToDelete + "'", db.getConnection());
+                    try
+                    {
+                        db.openConnection();
+                        MySqlDataReader dataReader = command.ExecuteReader();
+                    }
+                    catch (System.Data.SqlClient.SqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        db.closeConnection();
+                        RefreshGrid();
+                    }
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                   
+                }                
+            }
+        }
+
+        //поиск
+        private void searchButton_Click(object sender, EventArgs e)
+        {            
+            for (int i = 0; i <= competitions_dataGridView.Rows.Count - 1; i++)
+            {
+                if (competitions_dataGridView.Rows[i].Cells[1].FormattedValue.ToString().Contains(search_textbox.Text))
+                {
+                    competitions_dataGridView.Rows[i].Selected = true;
+                }
+                else
+                {
+                    competitions_dataGridView.Rows[i].Selected = false;
+                }
+            }
         }
     }
 }
