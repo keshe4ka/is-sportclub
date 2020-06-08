@@ -66,7 +66,9 @@ namespace winforms
                 }
                 else if (role == Role.Trainer)
                 {
-                    MessageBox.Show("Здарова тренер");
+                    this.Hide();
+                    Trainer TrainerForm = new Trainer();
+                    TrainerForm.Show();
                 }
                 else if (role == Role.Referee)
                 {

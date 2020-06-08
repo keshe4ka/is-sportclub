@@ -104,12 +104,6 @@ namespace winforms
             }
         }
 
-        //кнопка изменить, но мне на нее уже слегка пох
-        private void changeButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //поиск
         private void searchButton_Click(object sender, EventArgs e)
         {            
