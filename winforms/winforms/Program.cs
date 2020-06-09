@@ -18,5 +18,7 @@ namespace winforms
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
         }
+        //Глобальная переменная для хранения id
+        public static string appId;
     }
 }
