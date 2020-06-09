@@ -19,10 +19,12 @@ namespace winforms
         {
             InitializeComponent();
             AddCompetitionLoad();
+            AddSportsmanIdLoad();
+            AddRefereeIdLoad();
             Referee1 = addCompetition;
         }
 
-        //заполняем комбобокс
+        //заполняем комбобокс для спорта
         private void AddCompetitionLoad ()
         {
             try
@@ -42,6 +44,48 @@ namespace winforms
                 MessageBox.Show(ex.Message);
             }
             
+        }
+        //заполняем комбобокс для id спортсменов
+        private void AddSportsmanIdLoad()
+        {
+            try
+            {
+                DB db = new DB();
+                string selectQuery = "SELECT * FROM sportclub_v2.sportsman";
+                db.openConnection();
+                MySqlCommand command = new MySqlCommand(selectQuery, db.getConnection());
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    idsportsman_comboBox.Items.Add(reader.GetString("id"));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+        //заполняем комбобокс для id судей
+        private void AddRefereeIdLoad()
+        {
+            try
+            {
+                DB db = new DB();
+                string selectQuery = "SELECT * FROM sportclub_v2.referee";
+                db.openConnection();
+                MySqlCommand command = new MySqlCommand(selectQuery, db.getConnection());
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    idreferee_comboBox.Items.Add(reader.GetString("id"));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         //нажали на кнопку ок и перегнали данные из ввода
@@ -74,9 +118,9 @@ namespace winforms
                 command.Parameters.Add("@kind_of_sport", MySqlDbType.VarChar).Value = sport_id; //переменная из костыля
                 command.Parameters.Add("@result", MySqlDbType.VarChar).Value = result_textbox.Text;
                 command.Parameters.Add("@place", MySqlDbType.VarChar).Value = place_textbox.Text;
-                command.Parameters.Add("@Sportsman_id", MySqlDbType.VarChar).Value = idsportsman_textbox.Text;
+                command.Parameters.Add("@Sportsman_id", MySqlDbType.VarChar).Value = idsportsman_comboBox.Text;
                 command.Parameters.Add("@date", MySqlDbType.VarChar).Value = dateTimePicker1.Text;
-                command.Parameters.Add("@Referee_id", MySqlDbType.VarChar).Value = idreferee_textbox.Text;
+                command.Parameters.Add("@Referee_id", MySqlDbType.VarChar).Value = idreferee_comboBox.Text;
                 MySqlDataReader reader = command.ExecuteReader();
                 db.closeConnection();
                 MessageBox.Show("Запись добавлена!");
@@ -88,8 +132,8 @@ namespace winforms
                     sport_combobox.Text = " ";
                     result_textbox.Text = " ";
                     place_textbox.Text = " ";
-                    idsportsman_textbox.Text = " ";
-                    idreferee_textbox.Text = " ";
+                    idsportsman_comboBox.Text = " ";
+                    idreferee_comboBox.Text = " ";
                 }
 
                 //вызвали функцию обновления

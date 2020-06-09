@@ -29,7 +29,7 @@ namespace winforms
             try
             {
                 DB db = new DB();
-                string selectQuery = "SELECT * FROM sportclub_v2.user";
+                string selectQuery = "SELECT DISTINCT Role FROM sportclub_v2.user ";
                 db.openConnection();
                 MySqlCommand command = new MySqlCommand(selectQuery, db.getConnection());
                 MySqlDataReader reader = command.ExecuteReader();

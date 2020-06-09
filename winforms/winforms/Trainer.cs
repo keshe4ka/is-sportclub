@@ -20,6 +20,7 @@ namespace winforms
             LoadCompetitionsData();
             LoadNutritionData();
             LoadTreningProgrammnData();
+            LoadExerciseData();
             LoadSportsData();
             LoadData();
         }
@@ -69,6 +70,7 @@ namespace winforms
             kostyl = 1;
         }
 
+        //  обновление таблицы спорсмены
         public void RefreshGrid()
         {
             LoadData();
@@ -80,10 +82,28 @@ namespace winforms
             RefreshGridMy();
             kostyl = 0;
         }
-
+        //  обновление таблицы мои спортсмены
         public void RefreshGridMy()
         {
             LoadDataMySportsmen();
+        }
+
+        //  обновление таблицы программ тренировок
+        public void RefreshGridProgramm()
+        {
+            LoadTreningProgrammnData();
+        }
+
+        //  обновление таблицы упражнений
+        public void RefreshGridExercise()
+        {
+            LoadExerciseData();
+            LoadNutritionData();
+        }
+        //  обновление таблицы питания
+        public void RefreshGridNutrition()
+        {
+            LoadNutritionData();
         }
 
         //Добавления тренером новых спортсменов
@@ -139,7 +159,7 @@ namespace winforms
             String query = "SELECT nutrition_program.id, nutrition_program.Trainer_id AS `id Тренера`, nutrition_program.wish_weight AS `Желаемый вес`, nutrition_program.Sportsman_id AS `id Спортсмена`, user.second_name AS `Фамилия`, user.name AS `Имя` " +
                 "FROM nutrition_program, user, sportsman " +
                 "WHERE sportsman.id = nutrition_program.Sportsman_id " +
-                "and sportsman.User_id - user.id  ";
+                "and sportsman.User_id = user.id  ";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataSet data = new DataSet();
             adapter.Fill(data);
@@ -153,12 +173,25 @@ namespace winforms
         {
             DB db = new DB();
             db.openConnection();
-            String query = "SELECT * FROM training_programm";
+            String query = "SELECT training_programm.id, training_programm.number_of_times AS 'Количетсво', training_programm.lead_time AS 'Время выполнения', training_programm.Exercise_id AS 'id упражнения' FROM training_programm, exercise WHERE training_programm.Exercise_id = exercise.id";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataSet data = new DataSet();
             adapter.Fill(data);
             BindingSource bs = new BindingSource(data, data.Tables[0].TableName);
             programm_training_dataGridView.DataSource = bs;
+            db.closeConnection();
+        }
+        //Подключаемся к таблице упражнений
+        private void LoadExerciseData()
+        {
+            DB db = new DB();
+            db.openConnection();
+            String query = "SELECT id, name AS 'Название', description AS 'Описание'  FROM exercise";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
+            DataSet data = new DataSet();
+            adapter.Fill(data);
+            BindingSource bs = new BindingSource(data, data.Tables[0].TableName);
+            Exercise_dataGridView.DataSource = bs;
             db.closeConnection();
         }
 
@@ -167,7 +200,7 @@ namespace winforms
         {
             for (int i = 0; i <= cometition_trainer_dataGridView.Rows.Count - 1; i++)
             {
-                if (cometition_trainer_dataGridView.Rows[i].Cells[1].FormattedValue.ToString().Contains(search_textbox.Text))
+                if (cometition_trainer_dataGridView.Rows[i].Cells[0].FormattedValue.ToString().Contains(search_textbox.Text))
                 {
                     cometition_trainer_dataGridView.Rows[i].Selected = true;
                 }
@@ -242,6 +275,131 @@ namespace winforms
             
         }
 
+        //  кнопка добавления программы тренировок
+        private void addProgramm_training_Click(object sender, EventArgs e)
+        {
+            AddTrainingProgramm addTrainingProgramm = new AddTrainingProgramm(this);
+            addTrainingProgramm.Show();
+        }
+
+        //  кнопка удаления программы тренировок
+        private void delete_programm_training_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in programm_training_dataGridView.SelectedRows)
+            {
+                //кидаем проверочку
+                DialogResult dialogResult = MessageBox.Show("Вы уверены?", "Удалить данные", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DB db = new DB();
+                    db.openConnection();
+                    int rowIdToDelete = Convert.ToInt32(programm_training_dataGridView.SelectedRows[0].Cells[0].Value);
+                    MySqlCommand command = new MySqlCommand("DELETE FROM training_programm WHERE id = '" + rowIdToDelete + "'", db.getConnection());
+                    try
+                    {
+                        db.openConnection();
+                        MySqlDataReader dataReader = command.ExecuteReader();
+                    }
+                    catch (System.Data.SqlClient.SqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        db.closeConnection();
+                        RefreshGridProgramm();
+                    }
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+        }
+
+        //  кнопка добавления упражнения
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddExercise addExercise = new AddExercise(this);
+            addExercise.Show();
+        }
+
+        //  кнопка удаления упражнения
+        private void Delete_Exercise_Betton_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in Exercise_dataGridView.SelectedRows)
+            {
+                //кидаем проверочку
+                DialogResult dialogResult = MessageBox.Show("Вы уверены?", "Удалить данные", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DB db = new DB();
+                    db.openConnection();
+                    int rowIdToDelete = Convert.ToInt32(Exercise_dataGridView.SelectedRows[0].Cells[0].Value);
+                    MySqlCommand command = new MySqlCommand("DELETE FROM exercise WHERE id = '" + rowIdToDelete + "'", db.getConnection());
+                    try
+                    {
+                        db.openConnection();
+                        MySqlDataReader dataReader = command.ExecuteReader();
+                    }
+                    catch (System.Data.SqlClient.SqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        db.closeConnection();
+                        RefreshGridExercise();
+                    }
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+        }
+
+        //кнопка добавления программы питания
+        private void add_nutrition_programm_Click(object sender, EventArgs e)
+        {
+            AddNutritionProgramm addNutritionProgramm = new AddNutritionProgramm(this);
+            addNutritionProgramm.Show();
+        }
+
+        //кнопка удаления программы питания
+        private void delete_nutrition_programm_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in nutrition_programm_dataGridView.SelectedRows)
+            {
+                //кидаем проверочку
+                DialogResult dialogResult = MessageBox.Show("Вы уверены?", "Удалить данные", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DB db = new DB();
+                    db.openConnection();
+                    int rowIdToDelete = Convert.ToInt32(nutrition_programm_dataGridView.SelectedRows[0].Cells[0].Value);
+                    MySqlCommand command = new MySqlCommand("DELETE FROM nutrition_program WHERE id = '" + rowIdToDelete + "'", db.getConnection());
+                    try
+                    {
+                        db.openConnection();
+                        MySqlDataReader dataReader = command.ExecuteReader();
+                    }
+                    catch (System.Data.SqlClient.SqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        db.closeConnection();
+                        RefreshGridNutrition();
+                    }
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+        }
     }
 
 

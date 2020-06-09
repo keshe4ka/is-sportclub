@@ -108,12 +108,12 @@ namespace winforms
             }
         }
 
-        //поиск
+        //поиск соревнования
         private void searchButton_Click(object sender, EventArgs e)
         {            
             for (int i = 0; i <= competitions_dataGridView.Rows.Count - 1; i++)
             {
-                if (competitions_dataGridView.Rows[i].Cells[1].FormattedValue.ToString().Contains(search_textbox.Text))
+                if (competitions_dataGridView.Rows[i].Cells[0].FormattedValue.ToString().Contains(search_textbox.Text))
                 {
                     competitions_dataGridView.Rows[i].Selected = true;
                 }

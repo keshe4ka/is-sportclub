@@ -60,6 +60,18 @@
     <Compile Include="AddCompetition.Designer.cs">
       <DependentUpon>AddCompetition.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddExercise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddExercise.Designer.cs">
+      <DependentUpon>AddExercise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNutritionProgramm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNutritionProgramm.Designer.cs">
+      <DependentUpon>AddNutritionProgramm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddSport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +83,12 @@
     </Compile>
     <Compile Include="AddSportsman.Designer.cs">
       <DependentUpon>AddSportsman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTrainingProgramm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTrainingProgramm.Designer.cs">
+      <DependentUpon>AddTrainingProgramm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddUser.cs">
       <SubType>Form</SubType>
@@ -114,11 +132,20 @@
     <EmbeddedResource Include="AddCompetition.resx">
       <DependentUpon>AddCompetition.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddExercise.resx">
+      <DependentUpon>AddExercise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNutritionProgramm.resx">
+      <DependentUpon>AddNutritionProgramm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddSport.resx">
       <DependentUpon>AddSport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddSportsman.resx">
       <DependentUpon>AddSportsman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTrainingProgramm.resx">
+      <DependentUpon>AddTrainingProgramm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>

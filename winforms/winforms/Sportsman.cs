@@ -22,6 +22,7 @@ namespace winforms
             LoadSportsmanData();
             LoadNutritionData();
             LoadTreningProgrammnData();
+            LoadExerciseData();
             LoadSportsData();
         }
 
@@ -79,12 +80,12 @@ namespace winforms
             db.closeConnection();
         }
 
-        //поиск нужного спорсмена
+        //поиск нужного спортсмена
         private void searchSportsman_Button_Click(object sender, EventArgs e)
         {
             for (int i = 0; i <= sportsman_dataGridView.Rows.Count - 1; i++)
             {
-                if (sportsman_dataGridView.Rows[i].Cells[1].FormattedValue.ToString().Contains(searchsportsmen_textBox.Text))
+                if (sportsman_dataGridView.Rows[i].Cells[2].FormattedValue.ToString().Contains(searchsportsmen_textBox.Text))
                 {
                     sportsman_dataGridView.Rows[i].Selected = true;
                 }
@@ -100,12 +101,28 @@ namespace winforms
         {
             DB db = new DB();
             db.openConnection();
-            String query = "SELECT * FROM nutrition_program";
+            String query = "SELECT nutrition_program.id, nutrition_program.Trainer_id AS `id Тренера`, nutrition_program.wish_weight AS `Желаемый вес`, user.second_name AS `Фамилия`, user.name AS `Имя` " +
+                "FROM nutrition_program, user, sportsman " +
+                "WHERE sportsman.id = nutrition_program.Sportsman_id " +
+                "and sportsman.User_id = user.id  and user.id= ('" + Program.appId + "')";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataSet data = new DataSet();
             adapter.Fill(data);
             BindingSource bs = new BindingSource(data, data.Tables[0].TableName);
             programm_nutrition_dataGridView.DataSource = bs;
+            db.closeConnection();
+        }
+        //Подключаемся к таблице упражнений
+        private void LoadExerciseData()
+        {
+            DB db = new DB();
+            db.openConnection();
+            String query = "SELECT id, name AS 'Название', description AS 'Описание'  FROM exercise";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
+            DataSet data = new DataSet();
+            adapter.Fill(data);
+            BindingSource bs = new BindingSource(data, data.Tables[0].TableName);
+            ExerciseGridView.DataSource = bs;
             db.closeConnection();
         }
 
@@ -114,7 +131,7 @@ namespace winforms
         {
             DB db = new DB();
             db.openConnection();
-            String query = "SELECT * FROM training_programm";
+            String query = "SELECT training_programm.id, training_programm.number_of_times AS 'Количетсво', training_programm.lead_time AS 'Время выполнения', training_programm.Exercise_id AS 'id упражнения' FROM training_programm, exercise WHERE training_programm.Exercise_id = exercise.id";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataSet data = new DataSet();
             adapter.Fill(data);
@@ -183,6 +200,22 @@ namespace winforms
             }
             else {
                 MessageBox.Show("Допутсимый возраст от 13 до 80 лет!");
+            }
+        }
+
+        //поиск соревнования
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= cometition_sportsman_dataGridView.Rows.Count - 1; i++)
+            {
+                if (cometition_sportsman_dataGridView.Rows[i].Cells[0].FormattedValue.ToString().Contains(search_textbox.Text))
+                {
+                    cometition_sportsman_dataGridView.Rows[i].Selected = true;
+                }
+                else
+                {
+                    cometition_sportsman_dataGridView.Rows[i].Selected = false;
+                }
             }
         }
     }

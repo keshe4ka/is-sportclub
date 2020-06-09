@@ -105,3 +105,7 @@ C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.AddUser.r
 C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.Sportsman.resources
 C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.Trainer.resources
 C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.csproj.ResolveComReference.cache
+C:\Users\Артём\Desktop\sport\is_sportclub-master\is_sportclub\winforms\winforms\obj\Debug\winforms.csproj.ResolveComReference.cache
+C:\Users\Артём\Desktop\sport\is_sportclub-master\is_sportclub\winforms\winforms\obj\Debug\winforms.AddTrainingProgramm.resources
+C:\Users\Артём\Desktop\sport\is_sportclub-master\is_sportclub\winforms\winforms\obj\Debug\winforms.AddExercise.resources
+C:\Users\Артём\Desktop\sport\is_sportclub-master\is_sportclub\winforms\winforms\obj\Debug\winforms.AddNutritionProgramm.resources

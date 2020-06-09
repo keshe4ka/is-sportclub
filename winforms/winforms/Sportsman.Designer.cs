@@ -70,6 +70,9 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.programm_nutrition_dataGridView = new System.Windows.Forms.DataGridView();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.ExerciseGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cometition_sportsman_dataGridView)).BeginInit();
@@ -87,6 +90,9 @@
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programm_nutrition_dataGridView)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExerciseGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -96,6 +102,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(10, 3);
             this.tabControl1.Name = "tabControl1";
@@ -112,7 +119,7 @@
             this.tabPage1.Controls.Add(this.cometition_sportsman_dataGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(869, 419);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Соревнования";
@@ -140,12 +147,13 @@
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.searchButton.Location = new System.Drawing.Point(320, 19);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(92, 29);
             this.searchButton.TabIndex = 11;
             this.searchButton.Text = "Поиск";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // cometition_sportsman_dataGridView
             // 
@@ -153,7 +161,7 @@
             this.cometition_sportsman_dataGridView.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.cometition_sportsman_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cometition_sportsman_dataGridView.Location = new System.Drawing.Point(5, 61);
-            this.cometition_sportsman_dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cometition_sportsman_dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.cometition_sportsman_dataGridView.Name = "cometition_sportsman_dataGridView";
             this.cometition_sportsman_dataGridView.RowTemplate.Height = 24;
             this.cometition_sportsman_dataGridView.Size = new System.Drawing.Size(860, 353);
@@ -167,7 +175,7 @@
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(869, 419);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Виды спорта";
@@ -220,13 +228,13 @@
             this.label3.Location = new System.Drawing.Point(10, 29);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.Size = new System.Drawing.Size(170, 13);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Поиск спортсмена:";
+            this.label3.Text = "Поиск спортсмена по фамилии:";
             // 
             // searchsportsmen_textBox
             // 
-            this.searchsportsmen_textBox.Location = new System.Drawing.Point(116, 27);
+            this.searchsportsmen_textBox.Location = new System.Drawing.Point(188, 26);
             this.searchsportsmen_textBox.Name = "searchsportsmen_textBox";
             this.searchsportsmen_textBox.Size = new System.Drawing.Size(176, 20);
             this.searchsportsmen_textBox.TabIndex = 15;
@@ -235,8 +243,8 @@
             // 
             this.searchSportsman_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchSportsman_Button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.searchSportsman_Button.Location = new System.Drawing.Point(298, 20);
-            this.searchSportsman_Button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchSportsman_Button.Location = new System.Drawing.Point(370, 19);
+            this.searchSportsman_Button.Margin = new System.Windows.Forms.Padding(2);
             this.searchSportsman_Button.Name = "searchSportsman_Button";
             this.searchSportsman_Button.Size = new System.Drawing.Size(92, 32);
             this.searchSportsman_Button.TabIndex = 14;
@@ -287,9 +295,9 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Location = new System.Drawing.Point(9, 23);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(368, 206);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
@@ -516,6 +524,37 @@
             this.programm_nutrition_dataGridView.Size = new System.Drawing.Size(555, 411);
             this.programm_nutrition_dataGridView.TabIndex = 11;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.BackColor = System.Drawing.Color.SteelBlue;
+            this.tabPage7.Controls.Add(this.pictureBox5);
+            this.tabPage7.Controls.Add(this.ExerciseGridView);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(869, 419);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Упражнения";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(588, 4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(276, 149);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 12;
+            this.pictureBox5.TabStop = false;
+            // 
+            // ExerciseGridView
+            // 
+            this.ExerciseGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ExerciseGridView.BackgroundColor = System.Drawing.Color.SteelBlue;
+            this.ExerciseGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ExerciseGridView.Location = new System.Drawing.Point(4, 4);
+            this.ExerciseGridView.Name = "ExerciseGridView";
+            this.ExerciseGridView.Size = new System.Drawing.Size(578, 411);
+            this.ExerciseGridView.TabIndex = 11;
+            // 
             // Sportsman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -549,6 +588,9 @@
             this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programm_nutrition_dataGridView)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExerciseGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -596,5 +638,8 @@
         private System.Windows.Forms.ComboBox gender_comboBox;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.DataGridView ExerciseGridView;
     }
 }
