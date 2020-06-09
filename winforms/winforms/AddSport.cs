@@ -17,17 +17,10 @@ namespace winforms
         //Referee addCompetition in ()
         public AddSport(MainForm addSport)
         {
-            InitializeComponent();
-            AddCompetitionLoad();
+            InitializeComponent();           
             Sport1 = addSport;
         }
-
-        //дата
-        private void AddCompetitionLoad()
-        {
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "yyyy-mm-dd";
-        }
+               
         //добавляем вид спорта
         private void addUserButton_Click(object sender, EventArgs e)
         {

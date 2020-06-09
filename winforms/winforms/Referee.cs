@@ -32,7 +32,11 @@ namespace winforms
         {            
             DB db = new DB();
             db.openConnection();
-            String query = "SELECT * FROM competition";
+            String query = "SELECT competition.Name AS `Название`, kind_of_sport.name AS `Вид спорта`, competition.Result AS `Результат`, competition.Place AS `Место`, user.second_name AS `Фамилия`, user.name AS `Имя`, competition.Date AS `Дата проведения`, competition.Referee_id AS `id Судьи` " +
+                " FROM `competition`, `kind_of_sport`, `user`, `sportsman` " +
+                "WHERE competition.Kind_of_sport_id = kind_of_sport.id" +
+                " and sportsman.id = competition.Sportsman_id" +
+                " and sportsman.User_id = user.id";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataSet data = new DataSet();
             adapter.Fill(data);
@@ -46,7 +50,7 @@ namespace winforms
         {
             DB db = new DB();
             db.openConnection();
-            String query = "SELECT * FROM kind_of_sport";
+            String query = "SELECT id, name AS `Название`, world_record AS `Мировой рекорд`, date_of_record AS `Дата рекорда` FROM kind_of_sport";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataSet data = new DataSet();
             adapter.Fill(data);

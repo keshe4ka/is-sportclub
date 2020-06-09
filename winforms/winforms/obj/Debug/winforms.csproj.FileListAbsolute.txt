@@ -99,3 +99,9 @@ C:\local_directory\course_project\is_sportclub\winforms\winforms\obj\Debug\winfo
 C:\local_directory\course_project\is_sportclub\winforms\winforms\obj\Debug\winforms.csproj.CopyComplete
 C:\local_directory\course_project\is_sportclub\winforms\winforms\obj\Debug\winforms.exe
 C:\local_directory\course_project\is_sportclub\winforms\winforms\obj\Debug\winforms.pdb
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.AddSport.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.AddSportsman.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.AddUser.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.Sportsman.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.Trainer.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.csproj.ResolveComReference.cache

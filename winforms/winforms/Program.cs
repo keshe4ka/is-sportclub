@@ -19,6 +19,6 @@ namespace winforms
             Application.Run(new LoginForm());
         }
         //Глобальная переменная для хранения id
-        public static string appId;
+        public static int appId;
     }
 }

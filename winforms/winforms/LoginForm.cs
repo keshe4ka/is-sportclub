@@ -26,7 +26,7 @@ namespace winforms
         {
             Role role = Role.Failed;
             DB db = new DB();           
-            MySqlCommand command = new MySqlCommand("Select `Role` From `user` WHERE `login`=@login AND `password`=@password", db.getConnection());
+            MySqlCommand command = new MySqlCommand("Select `Role`, `id` From `user` WHERE `login`=@login AND `password`=@password", db.getConnection());
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = login;
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
             db.openConnection();
@@ -42,6 +42,7 @@ namespace winforms
                         case "Referee": role = Role.Referee; break;
                         case "Sportsman": role = Role.Sportsman; break;
                     }
+                    Program.appId = Convert.ToInt32(dataReader["id"]);
                 }
             }
             return role;
@@ -51,7 +52,7 @@ namespace winforms
         //тыкнули на кнопку и вошли
         private void login_button_Click(object sender, EventArgs e)
         {
-            Program.appId = login_textbox.Text;
+            //Program.appId = login_textbox.Text;
             Role role = GetRole(login_textbox.Text, password_textbox.Text);
             if (role == Role.Failed)
             {
@@ -92,7 +93,17 @@ namespace winforms
             Application.Exit();
         }
 
-
-
+        //цвет рамки групбокса
+        private void groupBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.BlueViolet, 3);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, 0, 5, 10, 5);
+            gfx.DrawLine(p, 62, 5, e.ClipRectangle.Width - 2, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
+                     
     }
 }

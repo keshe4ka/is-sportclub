@@ -152,16 +152,37 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `sportclub_V2`.`Training_programm`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `sportclub_V2`.`Training_programm` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `number of times` VARCHAR(45) NULL,
+  `lead_time` VARCHAR(45) NULL,
+  `Exercise_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_Training_programm_Exercise1_idx` (`Exercise_id` ASC),
+  CONSTRAINT `fk_Training_programm_Exercise1`
+    FOREIGN KEY (`Exercise_id`)
+    REFERENCES `sportclub_V2`.`Exercise` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `sportclub_V2`.`Training`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sportclub_V2`.`Training` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `Trainer_id` INT NOT NULL,
   `Sportsman_id` INT NOT NULL,
+  `Training_programm_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_Training_Trainer1_idx` (`Trainer_id` ASC),
   INDEX `fk_Training_Sportsman1_idx` (`Sportsman_id` ASC),
+  INDEX `fk_Training_Training_programm1_idx` (`Training_programm_id` ASC),
   CONSTRAINT `fk_Training_Trainer1`
     FOREIGN KEY (`Trainer_id`)
     REFERENCES `sportclub_V2`.`Trainer` (`id`)
@@ -171,67 +192,10 @@ CREATE TABLE IF NOT EXISTS `sportclub_V2`.`Training` (
     FOREIGN KEY (`Sportsman_id`)
     REFERENCES `sportclub_V2`.`Sportsman` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `sportclub_V2`.`Training_programm`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sportclub_V2`.`Training_programm` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `number of times` VARCHAR(45) NULL,
-  `lead_time` VARCHAR(45) NULL,
-  `Exercise_id` INT NOT NULL,
-  `Training_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  INDEX `fk_Training_programm_Exercise1_idx` (`Exercise_id` ASC),
-  INDEX `fk_Training_programm_Training1_idx` (`Training_id` ASC),
-  CONSTRAINT `fk_Training_programm_Exercise1`
-    FOREIGN KEY (`Exercise_id`)
-    REFERENCES `sportclub_V2`.`Exercise` (`id`)
-    ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Training_programm_Training1`
-    FOREIGN KEY (`Training_id`)
-    REFERENCES `sportclub_V2`.`Training` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `sportclub_V2`.`Nutrion`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sportclub_V2`.`Nutrion` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `wish_weight` INT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `sportclub_V2`.`Сalorie_intake`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sportclub_V2`.`Сalorie_intake` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `calories_per_day` INT NOT NULL,
-  `calories_absorbed` VARCHAR(45) NULL,
-  `Sportsman_id` INT NOT NULL,
-  `Nutrion_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_Сalorie_intake_Sportsman1_idx` (`Sportsman_id` ASC),
-  INDEX `fk_Сalorie_intake_Nutrion1_idx` (`Nutrion_id` ASC),
-  CONSTRAINT `fk_Сalorie_intake_Sportsman1`
-    FOREIGN KEY (`Sportsman_id`)
-    REFERENCES `sportclub_V2`.`Sportsman` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Сalorie_intake_Nutrion1`
-    FOREIGN KEY (`Nutrion_id`)
-    REFERENCES `sportclub_V2`.`Nutrion` (`id`)
+  CONSTRAINT `fk_Training_Training_programm1`
+    FOREIGN KEY (`Training_programm_id`)
+    REFERENCES `sportclub_V2`.`Training_programm` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -242,22 +206,16 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sportclub_V2`.`Nutrition_program` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `wish_weight` VARCHAR(45) NULL,
   `Trainer_id` INT NOT NULL,
-  `Nutrion_id` INT NOT NULL,
   `Sportsman_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_Nutrition_program_Trainer1_idx` (`Trainer_id` ASC),
-  INDEX `fk_Nutrition_program_Nutrion1_idx` (`Nutrion_id` ASC),
   INDEX `fk_Nutrition_program_Sportsman1_idx` (`Sportsman_id` ASC),
   CONSTRAINT `fk_Nutrition_program_Trainer1`
     FOREIGN KEY (`Trainer_id`)
     REFERENCES `sportclub_V2`.`Trainer` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Nutrition_program_Nutrion1`
-    FOREIGN KEY (`Nutrion_id`)
-    REFERENCES `sportclub_V2`.`Nutrion` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Nutrition_program_Sportsman1`

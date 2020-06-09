@@ -24,12 +24,13 @@ namespace winforms
             LoadTreningProgrammnData();
             LoadSportsData();
         }
+
         //прогружаем данные видов спорта
         private void LoadSportsData()
         {
             DB db = new DB();
             db.openConnection();
-            String query = "SELECT * FROM kind_of_sport";
+            String query = "SELECT id, name AS `Название`, world_record AS `Мировой рекорд`, date_of_record AS `Дата рекорда` FROM kind_of_sport";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataSet data = new DataSet();
             adapter.Fill(data);
@@ -49,7 +50,11 @@ namespace winforms
         {
             DB db = new DB();
             db.openConnection();
-            String query = "SELECT * FROM competition";
+            String query = "SELECT competition.Name AS `Название`, kind_of_sport.name AS `Вид спорта`, competition.Result AS `Результат`, competition.Place AS `Место`, user.second_name AS `Фамилия`, user.name AS `Имя`, competition.Date AS `Дата проведения`, competition.Referee_id AS `id Судьи` " +
+                " FROM `competition`, `kind_of_sport`, `user`, `sportsman` " +
+                "WHERE competition.Kind_of_sport_id = kind_of_sport.id" +
+                " and sportsman.id = competition.Sportsman_id" +
+                " and sportsman.User_id = user.id";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataSet data = new DataSet();
             adapter.Fill(data);
@@ -57,22 +62,23 @@ namespace winforms
             cometition_sportsman_dataGridView.DataSource = bs;
             db.closeConnection();
         }
+
         //Подключаемся к таблице спортсменов
         private void LoadSportsmanData()
         {
-            {
-                DB db = new DB();
-                db.openConnection();
-                String query = "SELECT * FROM sportsman";
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
-                DataSet data = new DataSet();
-                adapter.Fill(data);
-                BindingSource bs = new BindingSource(data, data.Tables[0].TableName);
-                sportsman_dataGridView.DataSource = bs;
-                db.closeConnection();
-            }
-
+            DB db = new DB();
+            db.openConnection();
+            String query = "SELECT sportsman.User_id AS `id Пользователя`, sportsman.id AS `id Спортсмена`, user.second_name AS `Фамилия`, user.name AS `Имя` " +
+                "FROM sportclub_v2.sportsman, sportclub_v2.user " +
+                "WHERE sportsman.User_id = user.id";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
+            DataSet data = new DataSet();
+            adapter.Fill(data);
+            BindingSource bs = new BindingSource(data, data.Tables[0].TableName);
+           sportsman_dataGridView.DataSource = bs;
+            db.closeConnection();
         }
+
         //поиск нужного спорсмена
         private void searchSportsman_Button_Click(object sender, EventArgs e)
         {
@@ -88,6 +94,7 @@ namespace winforms
                 }
             }
         }
+
         //Подключаемся к таблице программ питания
         private void LoadNutritionData()
         {
@@ -101,6 +108,7 @@ namespace winforms
             programm_nutrition_dataGridView.DataSource = bs;
             db.closeConnection();
         }
+
         //Подключаемся к таблице программ тренировок
         private void LoadTreningProgrammnData()
         {
@@ -115,6 +123,7 @@ namespace winforms
             db.closeConnection();
         }
 
+        //кнопка для рассчета
         private void button1_Click(object sender, EventArgs e)
         {
             if (gender_comboBox.Text == "")
@@ -143,6 +152,8 @@ namespace winforms
             }
 
         }
+        
+        //рассчет каллорий
         public void Calculation()
         {
             int weight = Convert.ToInt32(weight_textBox.Text);

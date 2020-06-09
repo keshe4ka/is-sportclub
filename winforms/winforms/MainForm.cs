@@ -8,7 +8,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Microsoft;
 
 namespace winforms
 {
@@ -20,13 +23,14 @@ namespace winforms
             LoadData();
             LoadSportsData();
         }
+
         //подключаемся к таблице пользователи
         private void LoadData()
         {
             {
                 DB db = new DB();
                 db.openConnection();
-                String query = "SELECT * FROM user";
+                String query = "SELECT id, second_name AS `Фамилия`, name AS `Имя`, patronymic AS `Отчество`, login AS `Логин`, password AS `Пароль`, Role AS `Роль` FROM user";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
                 DataSet data = new DataSet();
                 adapter.Fill(data);
@@ -36,12 +40,13 @@ namespace winforms
             }
 
         }
+
         //прогружаем данные видов спорта
         private void LoadSportsData()
         {
             DB db = new DB();
             db.openConnection();
-            String query = "SELECT * FROM kind_of_sport";
+            String query = "SELECT id, name AS `Название`, world_record AS `Мировой рекорд`, date_of_record AS `Дата рекорда` FROM kind_of_sport";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataSet data = new DataSet();
             adapter.Fill(data);
@@ -49,12 +54,13 @@ namespace winforms
             sports_dataGridView.DataSource = bs;
             db.closeConnection();
         }
+
         //форма для добавление пользователей
         private void addButton_Click(object sender, EventArgs e)
         {
-                AddUser addUser = new AddUser(this);
-                addUser.Show();
- 
+            AddUser addUser = new AddUser(this);
+            addUser.Show();
+
         }
 
         //удаление пользователей
@@ -122,12 +128,14 @@ namespace winforms
                 }
             }
         }
+
         //форма добавления вида спорта
         private void AddSportButton_Click(object sender, EventArgs e)
         {
             AddSport addSport = new AddSport(this);
             addSport.Show();
         }
+
         //удаление вида спорта
         private void DeliteSportButton_Click(object sender, EventArgs e)
         {
@@ -161,6 +169,31 @@ namespace winforms
 
                 }
             }
+        }
+
+        //выгрузка данных
+        private void export_button_Click(object sender, EventArgs e)
+        {
+            LoadSportsData();
+            copyAlltoClipboard();
+            Microsoft.Office.Interop.Excel.Application xlexcel;
+            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+            xlexcel = new Microsoft.Office.Interop.Excel.Application();
+            xlexcel.Visible = true;
+            xlWorkBook = xlexcel.Workbooks.Add(misValue);
+            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+        }
+        private void copyAlltoClipboard()
+        {
+            sports_dataGridView.SelectAll();
+            DataObject dataObj = sports_dataGridView.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
         }
     }
 }
