@@ -41,3 +41,5 @@ C:\Users\Артём\Desktop\is_sportclub-master\winforms\winforms\obj\Debug\winf
 C:\Users\Артём\Desktop\is_sportclub-master\winforms\winforms\obj\Debug\winforms.MainForm.resources
 C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.MainForm.resources
 C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.Referee.resources
+C:\Users\Артём\Desktop\is_sportclub-master\winforms\winforms\obj\Debug\winforms.Referee.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.AddCompetition.resources
