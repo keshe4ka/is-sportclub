@@ -91,7 +91,13 @@ namespace winforms
         //нажали на кнопку ок и перегнали данные из ввода
         private void addButton_Click(object sender, EventArgs e)
         {
-            DB db = new DB();
+            if (sport_combobox.Text == "")
+            {
+                MessageBox.Show("Вы не внесли значения!");
+            }
+            else
+            {
+                DB db = new DB();
             db.openConnection();
             //этот костыль нужен для того, чтобы в комбобоксе отображалось название вида спорта, а в sql запрос отправлся его id
             int sport_id;
@@ -104,12 +110,8 @@ namespace winforms
             db.closeConnection();
             //конец костыля
             //прога падала, если ничего не ввести и нажать кнопку ок, поэтому я прописал это условие
-            if (sport_combobox.Text == "")
-            {
-                MessageBox.Show("Вы не внесли значения!");                
-            }
-            else
-            {                
+
+             
                 db.openConnection();
                 String query = "INSERT INTO competition(Name, Kind_of_sport_id, Result, Place, Sportsman_id, Date, Referee_id) " +
                 "VALUES(@name, @kind_of_sport, @result, @place, @Sportsman_id, @date, @Referee_id)";
