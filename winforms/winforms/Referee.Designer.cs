@@ -52,11 +52,11 @@
             // 
             this.tabControl1.Controls.Add(this.kind_of_sport_tabpage);
             this.tabControl1.Controls.Add(this.competition_tabpage);
-            this.tabControl1.Location = new System.Drawing.Point(9, 4);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 5);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(688, 353);
+            this.tabControl1.Size = new System.Drawing.Size(917, 434);
             this.tabControl1.TabIndex = 0;
             // 
             // kind_of_sport_tabpage
@@ -64,20 +64,21 @@
             this.kind_of_sport_tabpage.BackColor = System.Drawing.Color.SteelBlue;
             this.kind_of_sport_tabpage.Controls.Add(this.pictureBox1);
             this.kind_of_sport_tabpage.Controls.Add(this.sports_dataGridView);
-            this.kind_of_sport_tabpage.Location = new System.Drawing.Point(4, 22);
-            this.kind_of_sport_tabpage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.kind_of_sport_tabpage.Location = new System.Drawing.Point(4, 25);
+            this.kind_of_sport_tabpage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kind_of_sport_tabpage.Name = "kind_of_sport_tabpage";
-            this.kind_of_sport_tabpage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.kind_of_sport_tabpage.Size = new System.Drawing.Size(680, 327);
+            this.kind_of_sport_tabpage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.kind_of_sport_tabpage.Size = new System.Drawing.Size(909, 405);
             this.kind_of_sport_tabpage.TabIndex = 1;
             this.kind_of_sport_tabpage.Text = "Виды спорта";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(382, 73);
+            this.pictureBox1.Location = new System.Drawing.Point(509, 90);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(295, 170);
+            this.pictureBox1.Size = new System.Drawing.Size(393, 209);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -87,10 +88,11 @@
             this.sports_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.sports_dataGridView.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.sports_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sports_dataGridView.Location = new System.Drawing.Point(9, 9);
+            this.sports_dataGridView.Location = new System.Drawing.Point(12, 11);
+            this.sports_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.sports_dataGridView.Name = "sports_dataGridView";
             this.sports_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.sports_dataGridView.Size = new System.Drawing.Size(367, 305);
+            this.sports_dataGridView.Size = new System.Drawing.Size(489, 375);
             this.sports_dataGridView.TabIndex = 0;
             // 
             // competition_tabpage
@@ -102,11 +104,11 @@
             this.competition_tabpage.Controls.Add(this.deleteButton);
             this.competition_tabpage.Controls.Add(this.searchButton);
             this.competition_tabpage.Controls.Add(this.competitions_dataGridView);
-            this.competition_tabpage.Location = new System.Drawing.Point(4, 22);
-            this.competition_tabpage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.competition_tabpage.Location = new System.Drawing.Point(4, 25);
+            this.competition_tabpage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.competition_tabpage.Name = "competition_tabpage";
-            this.competition_tabpage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.competition_tabpage.Size = new System.Drawing.Size(680, 327);
+            this.competition_tabpage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.competition_tabpage.Size = new System.Drawing.Size(909, 405);
             this.competition_tabpage.TabIndex = 0;
             this.competition_tabpage.Text = "Соревнования";
             // 
@@ -114,28 +116,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(248, 291);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(331, 358);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 13);
+            this.label1.Size = new System.Drawing.Size(173, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Название соревнования:";
             // 
             // search_textbox
             // 
-            this.search_textbox.Location = new System.Drawing.Point(382, 291);
+            this.search_textbox.Location = new System.Drawing.Point(509, 358);
+            this.search_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.search_textbox.Name = "search_textbox";
-            this.search_textbox.Size = new System.Drawing.Size(176, 20);
+            this.search_textbox.Size = new System.Drawing.Size(233, 22);
             this.search_textbox.TabIndex = 5;
             // 
             // addButton
             // 
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.addButton.Location = new System.Drawing.Point(14, 278);
-            this.addButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addButton.Location = new System.Drawing.Point(19, 342);
+            this.addButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(90, 40);
+            this.addButton.Size = new System.Drawing.Size(120, 49);
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = true;
@@ -145,10 +147,10 @@
             // 
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.deleteButton.Location = new System.Drawing.Point(109, 278);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteButton.Location = new System.Drawing.Point(145, 342);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(89, 40);
+            this.deleteButton.Size = new System.Drawing.Size(119, 49);
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "Удалить";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -158,10 +160,10 @@
             // 
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.searchButton.Location = new System.Drawing.Point(575, 278);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchButton.Location = new System.Drawing.Point(767, 342);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(92, 40);
+            this.searchButton.Size = new System.Drawing.Size(123, 49);
             this.searchButton.TabIndex = 4;
             this.searchButton.Text = "Поиск";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -169,7 +171,6 @@
             // 
             // competitions_dataGridView
             // 
-            this.competitions_dataGridView.AllowUserToAddRows = false;
             this.competitions_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.competitions_dataGridView.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.competitions_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -178,20 +179,20 @@
             this.competitions_dataGridView.Name = "competitions_dataGridView";
             this.competitions_dataGridView.RowTemplate.Height = 24;
             this.competitions_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.competitions_dataGridView.Size = new System.Drawing.Size(680, 266);
+            this.competitions_dataGridView.Size = new System.Drawing.Size(907, 327);
             this.competitions_dataGridView.TabIndex = 0;
             // 
             // Referee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(707, 366);
+            this.ClientSize = new System.Drawing.Size(943, 450);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Referee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Referee";
+            this.Text = "Спортивный клуб";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Referee_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.kind_of_sport_tabpage.ResumeLayout(false);

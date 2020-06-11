@@ -32,7 +32,7 @@ namespace winforms
         {            
             DB db = new DB();
             db.openConnection();
-            String query = "SELECT competition.Name AS `Название`, kind_of_sport.name AS `Вид спорта`, competition.Result AS `Результат`, competition.Place AS `Место`, user.second_name AS `Фамилия`, user.name AS `Имя`, competition.Date AS `Дата проведения`, competition.Referee_id AS `id Судьи` " +
+            String query = "SELECT competition.id, competition.Name AS `Название`, kind_of_sport.name AS `Вид спорта`, competition.Result AS `Результат`, competition.Place AS `Место`, user.second_name AS `Фамилия`, user.name AS `Имя`, competition.Date AS `Дата проведения`, competition.Referee_id AS `id Судьи` " +
                 " FROM `competition`, `kind_of_sport`, `user`, `sportsman` " +
                 "WHERE competition.Kind_of_sport_id = kind_of_sport.id" +
                 " and sportsman.id = competition.Sportsman_id" +
@@ -113,7 +113,7 @@ namespace winforms
         {            
             for (int i = 0; i <= competitions_dataGridView.Rows.Count - 1; i++)
             {
-                if (competitions_dataGridView.Rows[i].Cells[0].FormattedValue.ToString().Contains(search_textbox.Text))
+                if (competitions_dataGridView.Rows[i].Cells[1].FormattedValue.ToString().Contains(search_textbox.Text))
                 {
                     competitions_dataGridView.Rows[i].Selected = true;
                 }

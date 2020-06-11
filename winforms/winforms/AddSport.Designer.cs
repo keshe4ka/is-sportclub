@@ -138,7 +138,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddSport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddSport";
+            this.Text = "Добавить вид спорта";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

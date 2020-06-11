@@ -1,7 +1,6 @@
 C:\local_directory\course_project\winforms\winforms\bin\Debug\winforms.exe.config
 C:\local_directory\course_project\winforms\winforms\bin\Debug\winforms.exe
 C:\local_directory\course_project\winforms\winforms\bin\Debug\winforms.pdb
-C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.csprojAssemblyReference.cache
 C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.LoginForm.resources
 C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.Properties.Resources.resources
 C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.csproj.GenerateResource.cache
@@ -109,3 +108,7 @@ C:\Users\Артём\Desktop\sport\is_sportclub-master\is_sportclub\winforms\winf
 C:\Users\Артём\Desktop\sport\is_sportclub-master\is_sportclub\winforms\winforms\obj\Debug\winforms.AddTrainingProgramm.resources
 C:\Users\Артём\Desktop\sport\is_sportclub-master\is_sportclub\winforms\winforms\obj\Debug\winforms.AddExercise.resources
 C:\Users\Артём\Desktop\sport\is_sportclub-master\is_sportclub\winforms\winforms\obj\Debug\winforms.AddNutritionProgramm.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.AddExercise.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.AddNutritionProgramm.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.AddTrainingProgramm.resources
+C:\local_directory\course_project\winforms\winforms\obj\Debug\winforms.csprojAssemblyReference.cache

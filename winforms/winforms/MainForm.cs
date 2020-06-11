@@ -74,7 +74,7 @@ namespace winforms
                 {
                     DB db = new DB();
                     db.openConnection();
-                    int rowIdToDelete = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                    int rowIdToDelete = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);                    
                     MySqlCommand command = new MySqlCommand("DELETE FROM user WHERE id = '" + rowIdToDelete + "'", db.getConnection());
                     try
                     {

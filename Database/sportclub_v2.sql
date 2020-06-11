@@ -385,49 +385,49 @@ ALTER TABLE `user`
 -- Ограничения внешнего ключа таблицы `competition`
 --
 ALTER TABLE `competition`
-  ADD CONSTRAINT `fk_Competition_Kind_of_sport1` FOREIGN KEY (`Kind_of_sport_id`) REFERENCES `kind_of_sport` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Competition_Referee1` FOREIGN KEY (`Referee_id`) REFERENCES `referee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Competition_results_Sportsman1` FOREIGN KEY (`Sportsman_id`) REFERENCES `sportsman` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Competition_Kind_of_sport1` FOREIGN KEY (`Kind_of_sport_id`) REFERENCES `kind_of_sport` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Competition_Referee1` FOREIGN KEY (`Referee_id`) REFERENCES `referee` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Competition_results_Sportsman1` FOREIGN KEY (`Sportsman_id`) REFERENCES `sportsman` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `nutrition_program`
 --
 ALTER TABLE `nutrition_program`
-  ADD CONSTRAINT `fk_Nutrition_program_Sportsman1` FOREIGN KEY (`Sportsman_id`) REFERENCES `sportsman` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Nutrition_program_Trainer1` FOREIGN KEY (`Trainer_id`) REFERENCES `trainer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Nutrition_program_Sportsman1` FOREIGN KEY (`Sportsman_id`) REFERENCES `sportsman` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Nutrition_program_Trainer1` FOREIGN KEY (`Trainer_id`) REFERENCES `trainer` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `referee`
 --
 ALTER TABLE `referee`
-  ADD CONSTRAINT `fk_Referee_User1` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Referee_User1` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `sportsman`
 --
 ALTER TABLE `sportsman`
-  ADD CONSTRAINT `fk_Sportsman_Trainer1` FOREIGN KEY (`Trainer_id`) REFERENCES `trainer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Sportsman_User1` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Sportsman_Trainer1` FOREIGN KEY (`Trainer_id`) REFERENCES `trainer` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Sportsman_User1` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `trainer`
 --
 ALTER TABLE `trainer`
-  ADD CONSTRAINT `fk_Trainer_User1` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Trainer_User1` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `training`
 --
 ALTER TABLE `training`
-  ADD CONSTRAINT `fk_Training_Sportsman1` FOREIGN KEY (`Sportsman_id`) REFERENCES `sportsman` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Training_Trainer1` FOREIGN KEY (`Trainer_id`) REFERENCES `trainer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Training_Training_programm1` FOREIGN KEY (`Training_programm_id`) REFERENCES `training_programm` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Training_Sportsman1` FOREIGN KEY (`Sportsman_id`) REFERENCES `sportsman` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Training_Trainer1` FOREIGN KEY (`Trainer_id`) REFERENCES `trainer` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Training_Training_programm1` FOREIGN KEY (`Training_programm_id`) REFERENCES `training_programm` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `training_programm`
 --
 ALTER TABLE `training_programm`
-  ADD CONSTRAINT `fk_Training_programm_Exercise1` FOREIGN KEY (`Exercise_id`) REFERENCES `exercise` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Training_programm_Exercise1` FOREIGN KEY (`Exercise_id`) REFERENCES `exercise` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

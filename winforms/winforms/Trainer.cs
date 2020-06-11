@@ -32,9 +32,10 @@ namespace winforms
            
             DB db = new DB();
             db.openConnection();
-            String query = "SELECT sportsman.User_id AS `id Пользователя`, sportsman.id AS `id Спортсмена`, user.second_name AS `Фамилия`, user.name AS `Имя` " +
-                "FROM sportclub_v2.sportsman, sportclub_v2.user " +
-                "WHERE sportsman.User_id = user.id";
+            string sportsman_string = "Sportsman";
+            String query = "SELECT user.id AS `id Пользователя`, user.second_name AS `Фамилия`, user.name AS `Имя`, user.patronymic AS `Отчество` " +
+                "FROM user " +
+                "WHERE user.Role = ('" + sportsman_string + "')";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, db.getConnection());
             DataSet data = new DataSet();
             adapter.Fill(data);

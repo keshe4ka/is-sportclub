@@ -41,9 +41,10 @@
             // 
             this.addExerciseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addExerciseButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.addExerciseButton.Location = new System.Drawing.Point(135, 147);
+            this.addExerciseButton.Location = new System.Drawing.Point(150, 181);
+            this.addExerciseButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addExerciseButton.Name = "addExerciseButton";
-            this.addExerciseButton.Size = new System.Drawing.Size(93, 29);
+            this.addExerciseButton.Size = new System.Drawing.Size(124, 36);
             this.addExerciseButton.TabIndex = 26;
             this.addExerciseButton.Text = "Добавить";
             this.addExerciseButton.UseVisualStyleBackColor = true;
@@ -56,60 +57,62 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(11, 11);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(15, 14);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(346, 121);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(376, 161);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление упражнений";
             // 
             // discription_textBox
             // 
-            this.discription_textBox.Location = new System.Drawing.Point(181, 55);
+            this.discription_textBox.Location = new System.Drawing.Point(138, 68);
+            this.discription_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.discription_textBox.Multiline = true;
             this.discription_textBox.Name = "discription_textBox";
-            this.discription_textBox.Size = new System.Drawing.Size(160, 61);
+            this.discription_textBox.Size = new System.Drawing.Size(212, 74);
             this.discription_textBox.TabIndex = 28;
             // 
             // nameExercise_textBox
             // 
-            this.nameExercise_textBox.Location = new System.Drawing.Point(182, 29);
+            this.nameExercise_textBox.Location = new System.Drawing.Point(138, 33);
+            this.nameExercise_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nameExercise_textBox.Name = "nameExercise_textBox";
-            this.nameExercise_textBox.Size = new System.Drawing.Size(92, 20);
+            this.nameExercise_textBox.Size = new System.Drawing.Size(121, 22);
             this.nameExercise_textBox.TabIndex = 27;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 55);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(53, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(78, 17);
             this.label3.TabIndex = 23;
             this.label3.Text = "Описание:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 29);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(55, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "Название:";
             // 
             // AddExercise
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(367, 197);
+            this.ClientSize = new System.Drawing.Size(414, 231);
             this.Controls.Add(this.addExerciseButton);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddExercise";
-            this.Text = "AddExercise";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Добавить упражнение";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
